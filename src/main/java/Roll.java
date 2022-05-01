@@ -1,4 +1,6 @@
+import io.vavr.collection.HashMap;
 import io.vavr.collection.List;
+import io.vavr.collection.Map;
 
 public class Roll {
 
@@ -15,5 +17,11 @@ public class Roll {
     @Override
     public String toString() {
         return dices.mkString("{",",","}");
+    }
+
+    public Map<Integer, Integer> countOccurrences() {
+        return dices.foldLeft(HashMap.empty(), (map, dice) -> {
+           return map.put(dice, map.get(dice).getOrElse(0) + 1);
+        });
     }
 }
