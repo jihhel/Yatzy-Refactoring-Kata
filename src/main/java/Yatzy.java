@@ -13,26 +13,26 @@ public class Yatzy {
     }
 
     public static int ones(Roll h) {
-        return nbOccurrencesInRoll(h, 1);
+        return nbOccurrencesInRoll(h, 1) * 1;
     }
 
     public static int twos(Roll h) {
-        return nbOccurrencesInRoll(h, 2);
+        return nbOccurrencesInRoll(h, 2) * 2;
     }
 
     public static int threes(Roll h) {
-        return nbOccurrencesInRoll(h, 3);
+        return nbOccurrencesInRoll(h, 3) * 3;
     }
     public static int fours(Roll r) {
-        return nbOccurrencesInRoll(r, 4);
+        return nbOccurrencesInRoll(r, 4) * 4;
     }
 
     public static int fives(Roll r) {
-        return nbOccurrencesInRoll(r, 5);
+        return nbOccurrencesInRoll(r, 5) * 5;
     }
 
     public static int sixes(Roll r) {
-        return nbOccurrencesInRoll(r, 6);
+        return nbOccurrencesInRoll(r, 6) * 6;
     }
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5)
