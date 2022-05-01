@@ -1,3 +1,5 @@
+import io.vavr.collection.List;
+
 public class Yatzy {
 
     private static int nbOccurrencesInRoll(Roll h, int value) {
@@ -64,40 +66,26 @@ public class Yatzy {
         return nbthOfAKind(r, 3, 1);
     }
 
-    public static int smallStraight(int d1, int d2, int d3, int d4, int d5)
+    public static int smallStraight(Roll r)
     {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-        if (tallies[0] == 1 &&
-            tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1)
+        List<Integer> sorted = r.dices.sorted();
+
+        if (sorted.last() == 5 && sorted.distinct().length() == 5) {
             return 15;
-        return 0;
+        } else {
+            return 0;
+        }
     }
 
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5)
+    public static int largeStraight(Roll r)
     {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-        if (tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1
-            && tallies[5] == 1)
+        List<Integer> sorted = r.dices.sorted();
+
+        if (sorted.head() == 2 && sorted.distinct().length() == 5) {
             return 20;
-        return 0;
+        } else {
+            return 0;
+        }
     }
 
     public static int fullHouse(int d1, int d2, int d3, int d4, int d5)
